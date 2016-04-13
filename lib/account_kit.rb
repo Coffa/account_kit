@@ -1,5 +1,5 @@
 require "account_kit/version"
 
-module AccountKit
+class AccountKit
   # Your code goes here...
 end

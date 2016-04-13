@@ -6,21 +6,13 @@ require 'account_kit/version'
 Gem::Specification.new do |spec|
   spec.name          = "account_kit"
   spec.version       = AccountKit::VERSION
-  spec.authors       = ["MatBi"]
-  spec.email         = ["leminhducktvn@gmail.com"]
+  spec.authors       = ["Duc Le", "Long Nguyen", "Quy Truong"]
+  spec.email         = ["leminhducktvn@gmail.com", "longkt90@gmail.com", "sugiacupit@gmail.com"]
 
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/Coffa/account_kit"
   spec.summary       = %q{Gem for Facebook accountkit}
   spec.description   = %q{Gem for Facebook accountkit}
   spec.license       = "MIT"
-
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"

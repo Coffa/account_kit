@@ -22,4 +22,21 @@ describe AccountKit::API do
       expect(api.app_id).to eq(app_id)
     end
   end
+
+  describe 'access_token' do
+    let(:app_id) { 1234 }
+    let(:app_secret) { 'abcd' }
+    let(:app_version) { 'v0.3' }
+    let(:code) { 'test code'}
+
+    it 'does something' do
+      api = AccountKit::API.new(app_id: app_id, app_secret: app_secret)
+      pp api.access_token(code)
+    end
+
+    it 'does something' do
+      api = AccountKit::API.new(app_id: app_id, app_secret: app_secret)
+      pp api.me('test access_token')
+    end
+  end
 end

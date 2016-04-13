@@ -1,5 +1,6 @@
-require "account_kit/version"
+require 'account_kit/version'
+require 'net/http'
 
-class AccountKit
-  # Your code goes here...
+module AccountKit
+
 end

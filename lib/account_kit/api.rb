@@ -1,29 +1,9 @@
 module AccountKit
-  class API
+  module API
+    extend self
+
     GRANT_TYPE = 'authorization_code'.freeze
     DEFAULT_VERSION = 'v1.0'
-
-    attr_accessor :app_id, :app_secret, :api_version
-
-    class << self
-      attr_accessor :app_id, :app_secret, :api_version
-
-      def method_missing(method, *args)
-        instance.send(method, *args)
-      end
-
-      private
-
-      def instance
-        @instance ||= new
-      end
-    end
-
-    def initialize(options = {})
-      @app_id = options[:app_id] || self.app_id || ENV['ACCOUNT_KIT_APP_ID']
-      @app_secret = options[:app_secret] || self.app_secret || ENV['ACCOUNT_KIT_APP_SECRET']
-      @api_version = options[:api_version] || self.api_version || ENV['ACCOUNT_KIT_API_VERSION'] || DEFAULT_VERSION
-    end
 
     def access_token(code)
       uri = build_access_token_uri(code)
@@ -68,15 +48,15 @@ module AccountKit
     end
 
     def access_token_url
-      "https://graph.accountkit.com/#{@api_version}/access_token"
+      "https://graph.accountkit.com/#{Config.version}/access_token"
     end
 
     def me_url
-      "https://graph.accountkit.com/#{@api_version}/me"
+      "https://graph.accountkit.com/#{Config.version}/me"
     end
 
     def app_access_token
-      ['AA', @app_id, @app_secret].join('|')
+      ['AA', Config.app_id, Config.app_secret].join('|')
     end
   end
 end

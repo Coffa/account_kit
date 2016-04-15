@@ -17,16 +17,16 @@ describe AccountKit::API do
       expect(api.app_secret).to eq(app_secret)
     end
 
-    it 'accepts app_version' do
-      api = AccountKit::API.new(app_id: app_id)
-      expect(api.app_id).to eq(app_id)
+    it 'accepts api_version' do
+      api = AccountKit::API.new(api_version: 'v1.0')
+      expect(api.api_version).to eq(api_version)
     end
   end
 
   describe 'access_token' do
     let(:app_id) { 1234 }
     let(:app_secret) { 'abcd' }
-    let(:app_version) { 'v0.3' }
+    let(:app_version) { 'v1.0' }
     let(:code) { 'test code'}
 
     it 'does something' do

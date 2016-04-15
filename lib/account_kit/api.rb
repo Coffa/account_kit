@@ -1,14 +1,13 @@
 module AccountKit
   class API
-    ME_URL = "https://graph.accountkit.com/#{VERSION}/me".freeze
     GRANT_TYPE = 'authorization_code'.freeze
 
-    attr_accessor :app_id, :app_secret, :version
+    attr_accessor :app_id, :app_secret, :api_version
 
     def initialize(options = {})
       @app_id = options[:app_id] || ENV['ACCOUNT_KIT_APP_ID']
       @app_secret = options[:app_secret] || ENV['ACCOUNT_KIT_APP_SECRET']
-      @version = options[:version] || ENV['ACCOUNT_KIT_VERSION']
+      @api_version = options[:api_version] || ENV['ACCOUNT_KIT_API_VERSION']
     end
 
     def access_token(code)
@@ -54,11 +53,11 @@ module AccountKit
     end
 
     def access_token_url
-      "https://graph.accountkit.com/#{@version}/access_token"
+      "https://graph.accountkit.com/#{@api_version}/access_token"
     end
 
     def me_url
-      "https://graph.accountkit.com/#{@version}/me"
+      "https://graph.accountkit.com/#{@api_version}/me"
     end
 
     def app_access_token

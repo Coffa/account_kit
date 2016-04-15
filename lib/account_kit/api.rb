@@ -4,10 +4,14 @@ module AccountKit
 
     attr_accessor :app_id, :app_secret, :api_version
 
+    class << self
+      attr_accessor :app_id, :app_secret, :api_version
+    end
+
     def initialize(options = {})
-      @app_id = options[:app_id] || ENV['ACCOUNT_KIT_APP_ID']
-      @app_secret = options[:app_secret] || ENV['ACCOUNT_KIT_APP_SECRET']
-      @api_version = options[:api_version] || ENV['ACCOUNT_KIT_API_VERSION']
+      @app_id = options[:app_id] || self.app_id || ENV['ACCOUNT_KIT_APP_ID']
+      @app_secret = options[:app_secret] || self.app_secret || ENV['ACCOUNT_KIT_APP_SECRET']
+      @api_version = options[:api_version] || self.api_version || ENV['ACCOUNT_KIT_API_VERSION']
     end
 
     def access_token(code)

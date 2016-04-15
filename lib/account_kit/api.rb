@@ -48,15 +48,19 @@ module AccountKit
     end
 
     def access_token_url
-      "https://graph.accountkit.com/#{Config.version}/access_token"
+      "https://graph.accountkit.com/#{api_version}/access_token"
     end
 
     def me_url
-      "https://graph.accountkit.com/#{Config.version}/me"
+      "https://graph.accountkit.com/#{api_version}/me"
     end
 
     def app_access_token
       ['AA', Config.app_id, Config.app_secret].join('|')
+    end
+
+    def api_version
+      Config.api_version || DEFAULT_VERSION
     end
   end
 end

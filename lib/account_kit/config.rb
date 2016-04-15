@@ -4,6 +4,6 @@ module AccountKit
 
     attr_accessor :app_id
     attr_accessor :app_secret
-    attr_accessor :app_version
+    attr_accessor :api_version
   end
 end

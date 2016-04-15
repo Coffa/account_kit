@@ -6,7 +6,7 @@ require 'account_kit/version'
 Gem::Specification.new do |spec|
   spec.name          = "account_kit"
   spec.version       = AccountKit::VERSION
-  spec.authors       = ["Duc Le", "Long Nguyen", "Quy Truong"]
+  spec.authors       = ["Duc Le", "Long Nguyen", "Quy Truong", "Vu Minh Tan"]
   spec.email         = ["leminhducktvn@gmail.com", "longkt90@gmail.com", "sugiacupit@gmail.com"]
 
   spec.homepage      = "https://github.com/Coffa/account_kit"

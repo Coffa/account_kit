@@ -62,7 +62,7 @@ module AccountKit
     end
 
     def app_access_token
-      ['EM', @app_id, @app_secret].join('|')
+      ['AA', @app_id, @app_secret].join('|')
     end
   end
 end

@@ -40,7 +40,7 @@ We currently only supports [Authorization Code Flow](https://developers.facebook
 To get access token, you need to provide the authorization code you get after user authenticate with Account Kit:
 
 ```
-response = AccountKit::API.access_token(authorization_code)
+response = AccountKit.access_token(authorization_code)
 json_response = JSON.parse(response)
 access_token = json_response['access_token']
 ```
@@ -48,7 +48,7 @@ access_token = json_response['access_token']
 The response contains user's access token, use this token to get user's email or phone number:
 
 ```
-response = AccountKit::API.me(access_token)
+response = AccountKit.me(access_token)
 json_response = JSON.parse(response)
 email = json_response[:email][:address]
 phone_code = json_response[:phone][:country_prefix]

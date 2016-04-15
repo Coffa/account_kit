@@ -1,7 +1,6 @@
 # AccountKit
 A light-weight Ruby API client for [Facebook Account Kit](https://developers.facebook.com/docs/accountkit) with no dependency.
-
-A demo of the Account Kit can be found [here](https://www.facebook.com/FacebookforDevelopers/videos/10153620979588553/)
+A demo of the Account Kit can be found [here](https://www.facebook.com/FacebookforDevelopers/videos/10153620979588553/).
 
 ## Installation
 
@@ -23,7 +22,7 @@ Or install it yourself as:
 
 ### Configuration
 
-To work with Account Kit API, you need to provide App ID, App Secret. If you don't specify an api version, the gem will call v1.0. You can also specify which version you want to use::
+To work with Account Kit API, you need to provide Facebook App ID, Account Kit App Secret. If you don't specify an api version, the gem will call v1.0. You can also specify which version you want to use:
 
 ```
 AccountKit.configure do |config|

@@ -1,6 +1,7 @@
 module AccountKit
   class API
     GRANT_TYPE = 'authorization_code'.freeze
+    DEFAULT_VERSION = 'v1.0'
 
     attr_accessor :app_id, :app_secret, :api_version
 
@@ -21,7 +22,7 @@ module AccountKit
     def initialize(options = {})
       @app_id = options[:app_id] || self.app_id || ENV['ACCOUNT_KIT_APP_ID']
       @app_secret = options[:app_secret] || self.app_secret || ENV['ACCOUNT_KIT_APP_SECRET']
-      @api_version = options[:api_version] || self.api_version || ENV['ACCOUNT_KIT_API_VERSION']
+      @api_version = options[:api_version] || self.api_version || ENV['ACCOUNT_KIT_API_VERSION'] || DEFAULT_VERSION
     end
 
     def access_token(code)

@@ -1,8 +1,5 @@
 # AccountKit
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/account_kit`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A light-weight Ruby API client for [Facebook Account Kit](https://developers.facebook.com/docs/accountkit) with no dependency.
 
 ## Installation
 
@@ -22,7 +19,39 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Configuration
+
+To work with Account Kit API, you need to provide App ID, App Secret. If you don't specify an api version, the gem will call v1.0. You can also specify which version you want to use::
+
+```
+AccountKit.configure do |config|
+  config.app_id = '1234566789'
+  config.app_secret = 'abcdefghijklm'
+  config.api_version = 'v1.0'
+end
+```
+
+### API
+
+We currently only supports [Authorization Code Flow](https://developers.facebook.com/docs/accountkit/accesstokens). Support for Client Access Token Flow will come in later versions.
+
+To get access token, you need to provide the authorization code you get after user authenticate with Account Kit:
+
+```
+response = AccountKit::API.access_token(authorization_code)
+json_response = JSON.parse(response)
+access_token = json_response['access_token']
+```
+
+The response contains user's access token, use this token to get user's email or phone number:
+
+```
+response = AccountKit::API.me(access_token)
+json_response = JSON.parse(response)
+email = json_response[:email][:address]
+phone_code = json_response[:phone][:country_prefix]
+phone_number = json_response[:phone][:national_number]
+```
 
 ## Development
 
@@ -32,7 +61,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/account_kit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Coffa/account_kit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

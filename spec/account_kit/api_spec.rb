@@ -31,12 +31,14 @@ describe AccountKit::API do
 
     it 'does something' do
       api = AccountKit::API.new(app_id: app_id, app_secret: app_secret)
-      pp api.access_token(code)
+      response = api.access_token(code)
+      pp response
     end
 
     it 'does something' do
       api = AccountKit::API.new(app_id: app_id, app_secret: app_secret)
-      pp api.me('test access_token')
+      response = api.me('test access_token')
+      pp response
     end
   end
 end

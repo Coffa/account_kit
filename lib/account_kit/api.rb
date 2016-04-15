@@ -30,8 +30,7 @@ module AccountKit
       request = Net::HTTP::Get.new(uri.request_uri)
       request.content_type = 'application/json'
 
-      response = http.request(request)
-      JSON.parse(response.body)
+      http.request(request)
     end
 
     def build_access_token_uri(code)

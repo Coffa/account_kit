@@ -1,6 +1,8 @@
 # AccountKit
 A light-weight Ruby API client for [Facebook Account Kit](https://developers.facebook.com/docs/accountkit) with no dependency.
 
+A demo of the Account Kit can be found [here](https://www.facebook.com/FacebookforDevelopers/videos/10153620979588553/)
+
 ## Installation
 
 Add this line to your application's Gemfile:

@@ -3,7 +3,7 @@ require 'json'
 
 require 'account_kit/version'
 require 'account_kit/api'
-require 'accountkit/config'
+require 'account_kit/config'
 
 module AccountKit
   extend self

@@ -6,6 +6,16 @@ module AccountKit
 
     class << self
       attr_accessor :app_id, :app_secret, :api_version
+
+      def method_missing(method, *args)
+        instance.send(method, *args)
+      end
+
+      private
+
+      def instance
+        @instance ||= new
+      end
     end
 
     def initialize(options = {})

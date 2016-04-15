@@ -1,6 +1,6 @@
 # AccountKit
 
-A simple authentication gem using Facebook Account Kit. You can take a look at the demo  [here](https://www.facebook.com/FacebookforDevelopers/videos/10153620979588553/)
+A simple authentication gem using Facebook Account Kit. The demo of the Account Kit can be found   [here](https://www.facebook.com/FacebookforDevelopers/videos/10153620979588553/)
 
 ## Installation
 

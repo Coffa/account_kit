@@ -28,26 +28,26 @@ To work with Account Kit API, you need to provide Facebook App ID, Account Kit A
 
 ```
 AccountKit.configure do |config|
-  config.app_id = '1234566789'
-  config.app_secret = 'abcdefghijklm'
+  config.app_id      = '1234566789'
+  config.app_secret  = 'abcdefghijklm'
   config.api_version = 'v1.0'
 end
 ```
 
 ### API
 
-If you use turn off Enable Client Access Token Flow and use [Authorization Code Flow](https://developers.facebook.com/docs/accountkit/accesstokens), you need to provide the authorization code after user authenticate with Account Kit in order to get an access token:
+If you turn off Enable Client Access Token Flow and use [Authorization Code Flow](https://developers.facebook.com/docs/accountkit/accesstokens), you need to provide the authorization code after user authenticate with Account Kit in order to get an access token:
 
 ```
-response = JSON.parse(AccountKit.access_token(authorization_code).body)
+response     = JSON.parse(AccountKit.access_token(authorization_code).body)
 access_token = response['access_token']
 ```
 If you turn on Enable Client Access Token Flow, you should already have an access token after user authenticate. To get account information, use the access token to get user's email or phone number:
 
 ```
-response = JSON.parse(AccountKit.me(access_token).body)
-email = response[:email][:address]
-phone_code = response[:phone][:country_prefix]
+response     = JSON.parse(AccountKit.me(access_token).body)
+email        = response[:email][:address]
+phone_code   = response[:phone][:country_prefix]
 phone_number = response[:phone][:national_number]
 ```
 

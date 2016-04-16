@@ -36,24 +36,19 @@ end
 
 ### API
 
-We currently only supports [Authorization Code Flow](https://developers.facebook.com/docs/accountkit/accesstokens). Support for Client Access Token Flow will come in later versions.
-
-To get access token, you need to provide the authorization code you get after user authenticate with Account Kit:
+If you use turn off Enable Client Access Token Flow and use [Authorization Code Flow](https://developers.facebook.com/docs/accountkit/accesstokens), you need to provide the authorization code after user authenticate with Account Kit in order to get an access token:
 
 ```
-response = AccountKit.access_token(authorization_code)
-json_response = JSON.parse(response)
-access_token = json_response['access_token']
+response = JSON.parse(AccountKit.access_token(authorization_code).body)
+access_token = response['access_token']
 ```
-
-The response contains user's access token, use this token to get user's email or phone number:
+If you turn on Enable Client Access Token Flow, you should already have an access token after user authenticate. To get account information, use the access token to get user's email or phone number:
 
 ```
-response = AccountKit.me(access_token)
-json_response = JSON.parse(response)
-email = json_response[:email][:address]
-phone_code = json_response[:phone][:country_prefix]
-phone_number = json_response[:phone][:national_number]
+response = JSON.parse(AccountKit.me(access_token).body)
+email = response[:email][:address]
+phone_code = response[:phone][:country_prefix]
+phone_number = response[:phone][:national_number]
 ```
 
 ## Development

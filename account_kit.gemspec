@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["leminhducktvn@gmail.com", "longkt90@gmail.com", "sugiacupit@gmail.com"]
 
   spec.homepage      = "https://github.com/Coffa/account_kit"
-  spec.summary       = %q{Gem for Facebook accountkit}
-  spec.description   = %q{Gem for Facebook accountkit}
+  spec.summary       = %q{A light-weight Ruby API client for Facebook Account Kit with no dependency.}
+  spec.description   = %q{A light-weight Ruby API client for Facebook Account Kit with no dependency.}
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

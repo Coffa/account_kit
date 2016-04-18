@@ -41,7 +41,7 @@ module AccountKit
   def me_params(access_token)
     params = { access_token: access_token }
     params[:appsecret_proof] = appsecret_proof(access_token) if Config.require_app_secret
-    URI.encode_www_form(params)
+    params
   end
 
   def appsecret_proof(access_token)

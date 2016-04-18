@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+require 'openssl'
 
 require 'account_kit/version'
 require 'account_kit/base'

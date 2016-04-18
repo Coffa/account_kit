@@ -34,8 +34,19 @@ module AccountKit
 
   def build_me_uri(access_token)
     uri = URI(me_url)
-    uri.query = URI.encode_www_form(access_token: access_token)
+    uri.query = URI.encode_www_form(me_params(access_token))
     uri
+  end
+
+  def me_params(access_token)
+    params = { access_token: access_token }
+    params[:appsecret_proof] = appsecret_proof(access_token) if Config.require_app_secret
+    URI.encode_www_form(params)
+  end
+
+  def appsecret_proof(access_token)
+    sha256 = OpenSSL::Digest.new('sha256')
+    OpenSSL::HMAC.hexdigest(sha256, Config.app_secret, access_token)
   end
 
   def access_token_params(code)

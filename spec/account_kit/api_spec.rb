@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe AccountKit do
-  let(:app_id) { '123456789' }
-  let(:app_secret) { 'abcdef' }
+  let(:app_id) { '377314202423263' }
+  let(:app_secret) { '30a55b0dec2e34c78a539bc055e67766' }
   let(:api_version) { 'v1.0' }
 
   describe 'access_token' do

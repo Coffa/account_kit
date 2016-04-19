@@ -19,11 +19,14 @@ module AccountKit
   def send_payload(uri)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
+    logger.info(uri.request_uri)
 
     request = Net::HTTP::Get.new(uri.request_uri)
     request.content_type = 'application/json'
 
-    http.request(request)
+    http.request(request).tap do |response|
+      logger.info(JSON.parse(response.body))
+    end
   end
 
   def build_access_token_uri(code)
@@ -45,7 +48,8 @@ module AccountKit
   end
 
   def appsecret_proof(access_token)
-    sha256 = OpenSSL::Digest.new('sha256')
+    sha256 = OpenSSL::Digest::SHA256.new
+    logger.info("app_secret: #{Config.app_secret}")
     OpenSSL::HMAC.hexdigest(sha256, Config.app_secret, access_token)
   end
 

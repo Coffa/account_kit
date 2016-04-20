@@ -2,7 +2,8 @@
 
 # AccountKit
 A light-weight Ruby API client for [Facebook Account Kit](https://developers.facebook.com/docs/accountkit) with no dependency.
-A demo of the Account Kit can be found [here](https://www.facebook.com/FacebookforDevelopers/videos/10153620979588553/).
+A video demo of the Account Kit can be found [here](https://www.facebook.com/FacebookforDevelopers/videos/10153620979588553/).
+You can find a demo app [here](https://github.com/vnnoder/account_kit_demo)
 
 ## Installation
 
@@ -35,7 +36,10 @@ end
 ```
 
 AccountKit support App Secret Proof, if you turn on "Require App Secret", add the following config:
-`config.require_app_secret = true`
+
+```
+config.require_app_secret = true
+```
 
 ### API
 

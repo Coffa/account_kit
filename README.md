@@ -34,6 +34,9 @@ AccountKit.configure do |config|
 end
 ```
 
+AccountKit support App Secret Proof, if you turn on "Require App Secret", add the following config:
+`config.require_app_secret = true`
+
 ### API
 
 If you turn off Enable Client Access Token Flow and use [Authorization Code Flow](https://developers.facebook.com/docs/accountkit/accesstokens), you need to provide the authorization code after user authenticate with Account Kit in order to get an access token:
@@ -47,8 +50,7 @@ If you turn on Enable Client Access Token Flow, you should already have an acces
 ```
 response     = JSON.parse(AccountKit.me(access_token).body)
 email        = response[:email][:address]
-phone_code   = response[:phone][:country_prefix]
-phone_number = response[:phone][:national_number]
+phone_number = response[:phone][:number]
 ```
 
 ## Development

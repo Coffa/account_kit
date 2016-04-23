@@ -2,7 +2,7 @@ module AccountKit
   extend self
 
   GRANT_TYPE = 'authorization_code'.freeze
-  DEFAULT_VERSION = 'v1.0'
+  DEFAULT_API_VERSION = 'v1.0'
 
   def access_token(code)
     uri = build_access_token_uri(code)
@@ -74,6 +74,6 @@ module AccountKit
   end
 
   def api_version
-    Config.api_version || DEFAULT_VERSION
+    Config.api_version
   end
 end

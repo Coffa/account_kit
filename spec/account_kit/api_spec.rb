@@ -18,12 +18,12 @@ describe AccountKit do
 
     it 'does something' do
       response = AccountKit.access_token(code)
-      pp response
+      pp response.body
     end
 
     it 'does something' do
       response = AccountKit.me('test access_token')
-      pp response
+      pp response.body
     end
   end
 end

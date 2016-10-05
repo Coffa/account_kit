@@ -1,4 +1,4 @@
-module AccountKit
+class AccountKit
   module Config
     extend self
 

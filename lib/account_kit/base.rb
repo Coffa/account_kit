@@ -1,7 +1,7 @@
 class AccountKit
 
   GRANT_TYPE = 'authorization_code'.freeze
-  DEFAULT_VERSION = 'v1.0'
+  DEFAULT_API_VERSION = 'v1.1'
 
   class << self
     # Support older versions
@@ -13,7 +13,7 @@ class AccountKit
   def initialize(options = {})
     @app_id = options.fetch(:app_id, Config.app_id)
     @app_secret = options.fetch(:app_secret, Config.app_secret)
-    @api_version = options.fetch(:api_version, Config.api_version || DEFAULT_VERSION)
+    @api_version = options.fetch(:api_version, Config.api_version || DEFAULT_API_VERSION)
     @require_app_secret = options.fetch(:require_app_secret, Config.require_app_secret)
   end
 
